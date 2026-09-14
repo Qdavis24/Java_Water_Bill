@@ -1,36 +1,26 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Main {
     public static void main(String[] args){
-        System.out.println("Hello world!");
-        String name = "Quinn";
-        int gallonsUsed = 20;
-        int customerType = 1;
 
-        double bill = 0.0;
+        Customer cmer = new Customer();
 
-        if (customerType == 1) {
-            if (gallonsUsed <= 7000) {
-                bill = 13.21 + gallonsUsed * (2.04 / 1000.0);
-            } else if (gallonsUsed <= 13000) {
-                bill = 13.21 + 7000 * (2.04 / 1000.0)
-                        + (gallonsUsed - 7000) * (2.35 / 1000.0);
-            } else {
-                bill = 13.21 + 7000 * (2.04 / 1000.0)
-                        + 6000 * (2.35 / 1000.0)
-                        + (gallonsUsed - 13000) * (2.70 / 1000.0);
-            }
-        } else {
-            if (gallonsUsed <= 7000) {
-                bill = 15.51 + gallonsUsed * (1.97 / 1000.0);
-            } else if (gallonsUsed <= 13000) {
-                bill = 15.51 + 9000 * (1.97 / 1000.0)
-                        + (gallonsUsed - 9000) * (2.26 / 1000.0);
-            } else {
-                bill = 15.51 + 9000 * (1.97 / 1000.0)
-                        + 4000 * (2.26 / 1000.0)
-                        + (gallonsUsed - 13000) * (2.60 / 1000.0);
-            }
+
+        InputStreamReader inputStreamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        try {
+            System.out.print("Enter Customer Name: ");
+            name = bufferedReader.readLine();
+            System.out.print("Enter Customer Type (1: SingleFamily, 2: Duplex): ");
+            customerType = Integer.parseInt(bufferedReader.readLine());
+            System.out.print("Enter gallons used: ");
+            gallonsUsed = Integer.parseInt(bufferedReader.readLine());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
 
         System.out.println("the bill is " + bill);
 
