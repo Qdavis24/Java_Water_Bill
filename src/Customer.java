@@ -24,6 +24,15 @@ public class Customer {
     private int customerType;
     private double bill;
 
+    public Customer(){
+
+    }
+    public Customer(String name, int gallonsUsed, int customerType){
+        setName(name);
+        setGallonsUsed(gallonsUsed);
+        setCustomerType(customerType);
+    }
+
     public int getGallonsUsed(){
         return gallonsUsed;
     }
